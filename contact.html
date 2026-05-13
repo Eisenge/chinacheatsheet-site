@@ -255,8 +255,10 @@
     font-size: 0.82rem; color: var(--ink); user-select: none;
   }
   .checkbox-item:hover { border-color: var(--red); color: var(--red); }
-  .checkbox-item input { display: none; }
-  .checkbox-item.selected {
+  .checkbox-item input[type="checkbox"] {
+    position: absolute; opacity: 0; width: 0; height: 0;
+  }
+  .checkbox-item:has(input:checked) {
     background: rgba(200,53,42,0.06);
     border-color: var(--red); color: var(--red);
   }
@@ -264,6 +266,9 @@
     width: 16px; height: 16px; border: 1.5px solid currentColor;
     border-radius: 2px; display: flex; align-items: center; justify-content: center;
     flex-shrink: 0; font-size: 0.65rem;
+  }
+  .checkbox-item:has(input:checked) .check-box::after {
+    content: "✓"; font-size: 0.7rem; font-weight: 700;
   }
 
   /* Budget slider */
@@ -654,7 +659,7 @@
         </div>
         <div class="form-group">
           <label for="whatsapp">WhatsApp / Phone (optional)</label>
-          <input type="tel" id="whatsapp" name="whatsapp" placeholder="+86 184 3422 2218" autocomplete="tel">
+          <input type="tel" id="whatsapp" name="whatsapp" placeholder="+1 555 000 0000" autocomplete="tel">
         </div>
         <div class="form-group">
           <label for="nationality">Your Nationality</label>
@@ -726,27 +731,27 @@
         <div class="form-group" style="margin-top:1.4rem;">
           <label>Which tours interest you? (select all that apply)</label>
           <div class="checkbox-grid">
-            <label class="checkbox-item" onclick="toggleCheck(this)">
+            <label class="checkbox-item">
               <input type="checkbox" name="tour_interest" value="Imperial Classic">
               <span class="check-box"></span> Imperial Classic
             </label>
-            <label class="checkbox-item" onclick="toggleCheck(this)">
+            <label class="checkbox-item">
               <input type="checkbox" name="tour_interest" value="Guilin & Nature">
               <span class="check-box"></span> Guilin & Nature
             </label>
-            <label class="checkbox-item" onclick="toggleCheck(this)">
+            <label class="checkbox-item">
               <input type="checkbox" name="tour_interest" value="Tibet Adventure">
               <span class="check-box"></span> Tibet Adventure
             </label>
-            <label class="checkbox-item" onclick="toggleCheck(this)">
+            <label class="checkbox-item">
               <input type="checkbox" name="tour_interest" value="Silk Road">
               <span class="check-box"></span> Silk Road
             </label>
-            <label class="checkbox-item" onclick="toggleCheck(this)">
+            <label class="checkbox-item">
               <input type="checkbox" name="tour_interest" value="Yangtze Cruise">
               <span class="check-box"></span> Yangtze Cruise
             </label>
-            <label class="checkbox-item" onclick="toggleCheck(this)">
+            <label class="checkbox-item">
               <input type="checkbox" name="tour_interest" value="Custom / Not Sure">
               <span class="check-box"></span> Custom / Not Sure
             </label>
@@ -1026,19 +1031,7 @@
     document.getElementById('form-heading').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  // ── Checkbox toggle ──
-  function toggleCheck(label) {
-    label.classList.toggle('selected');
-    const checkbox = label.querySelector('input[type="checkbox"]');
-    const box = label.querySelector('.check-box');
-    if (label.classList.contains('selected')) {
-      checkbox.checked = true;
-      box.textContent = '✓';
-    } else {
-      checkbox.checked = false;
-      box.textContent = '';
-    }
-  }
+  // Checkboxes use native browser behavior
 
   // ── Budget slider ──
   function updateBudget(val) {
