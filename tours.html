@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="nav.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ═══ SEO: Primary Meta Tags ═══ -->
@@ -592,12 +593,7 @@
 
   /* ── ANIMATIONS ── */
   .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 1024px) {
-    nav { padding: 1.2rem 2rem; }
-    .nav-links { display: none; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }.nav-links { display: none; }
     .page-hero { padding: 120px 2.5rem 4rem; }
     .filter-section { padding: 1.5rem 2.5rem; top: 64px; }
     .tours-page { padding: 3rem 2.5rem; }
@@ -612,22 +608,91 @@
     footer { padding: 3rem 2.5rem 2rem; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
   }
+
+  /* ══ MOBILE RESPONSIVE ══ */
+  @media (max-width: 900px) {
+    body { padding-top: 68px; }
+    section, .page-hero, .tours-page, .dest-section,
+    .articles-section, .faq-section, .practical,
+    .next-steps, .reviews-strip, .featured-wrap,
+    .quick-tips, .newsletter, .checklist,
+    .filter-section, .trust-bar, .inclusions-strip,
+    .map-strip, .cta-banner, .custom-banner,
+    .contact-main, footer {
+      padding-left: 1.4rem !important;
+      padding-right: 1.4rem !important;
+    }
+    /* Hero */
+    #hero { grid-template-columns: 1fr !important; min-height: auto !important; }
+    .hero-left { padding: 2.5rem 1.4rem 2rem !important; }
+    .hero-right { height: 55vw !important; }
+    h1 { font-size: clamp(2rem, 7vw, 3rem) !important; }
+    .hero-stats { gap: 1.5rem !important; flex-wrap: wrap; }
+    /* Grids → single column */
+    .tours-grid, .dest-grid, .testi-grid,
+    .why-grid, .footer-grid, .articles-grid,
+    .practical-grid, .reviews-grid, .steps-grid,
+    .faq-grid, .tips-grid, .checklist-grid { grid-template-columns: 1fr !important; }
+    /* Two column grids → single on mobile */
+    .form-row, .contact-main, .featured-banner,
+    .featured-article, .featured-dest, .newsletter,
+    .custom-banner, .map-strip { grid-template-columns: 1fr !important; }
+    /* Featured images */
+    .featured-right, .feat-img-wrap,
+    .featured-right { min-height: 200px !important; height: 200px !important; }
+    /* Filter bars */
+    .filter-section, .region-bar, .cat-bar {
+      padding: 0 1.4rem !important;
+      top: 68px !important;
+    }
+    .filter-bar { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 0.5rem; gap: 0.5rem; }
+    /* Inclusions */
+    .inclusions-strip { grid-template-columns: repeat(3,1fr) !important; padding: 2rem 1.4rem !important; gap: 1rem !important; }
+    /* Contact form */
+    .form-side, .info-side { padding: 2.5rem 1.4rem !important; }
+    /* Map visual hidden on mobile */
+    .map-visual { display: none !important; }
+    /* CTA banner */
+    .cta-banner { flex-direction: column !important; gap: 1.5rem !important; text-align: center; }
+    /* Footer */
+    .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    /* Next steps */
+    .steps-grid { grid-template-columns: 1fr 1fr !important; gap: 2rem !important; }
+    .steps-grid::before { display: none !important; }
+    /* Misc */
+    .tours-header, .dest-section-header, .articles-header { flex-direction: column; align-items: flex-start !important; }
+    .sort-select { margin-left: 0 !important; }
+    .dest-grid .dest-item:first-child { grid-row: auto !important; }
+    .custom-banner-btns { align-items: stretch !important; }
+    .btn-primary, .btn-outline, .btn-white { text-align: center; }
+    /* Page hero */
+    .page-hero { padding: 100px 1.4rem 3rem !important; }
+    .page-hero-char { font-size: 10rem !important; right: 1rem !important; }
+  }
+  @media (max-width: 480px) {
+    h1 { font-size: clamp(1.8rem, 8vw, 2.4rem) !important; }
+    h2 { font-size: clamp(1.5rem, 6vw, 2rem) !important; }
+    .inclusions-strip { grid-template-columns: 1fr 1fr !important; }
+    .steps-grid { grid-template-columns: 1fr !important; }
+    .footer-grid { grid-template-columns: 1fr !important; }
+    .hero-btns { flex-direction: column; }
+    .btn-primary, .btn-outline { text-align: center; }
+    .newsletter-row { flex-direction: column; }
+    .newsletter-input { border-right: 1px solid rgba(139,125,107,0.3) !important; border-radius: 2px !important; border-bottom: 1px solid rgba(139,125,107,0.3) !important; }
+    .newsletter-btn { border-radius: 2px !important; }
+    .filter-bar { gap: 0.4rem; }
+    .filter-btn { padding: 0.35rem 0.7rem !important; font-size: 0.72rem !important; }
+    .trust-bar { gap: 1rem !important; padding: 0.8rem 1.4rem !important; }
+    .trust-item { font-size: 0.75rem !important; }
+  }
+
 </style>
 </head>
 <body>
 
 <!-- ── NAVIGATION ── -->
-<nav id="navbar">
-  <a href="index.html" class="nav-logo">China <span>Cheat Sheet</span></a>
-  <ul class="nav-links">
-    <li><a href="tours.html" class="active">Tours</a></li>
-    <li><a href="destinations.html">Destinations</a></li>
-    <li><a href="blog.html">Travel Tips</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <a href="contact.html" class="nav-cta">Plan My Trip</a>
-</nav>
+<nav id="navbar"></nav>
 
 <!-- ── PAGE HERO ── -->
 <header>
@@ -1254,5 +1319,6 @@
     cards.forEach(c => grid.appendChild(c));
   }
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
