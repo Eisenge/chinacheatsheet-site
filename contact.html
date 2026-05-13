@@ -116,39 +116,10 @@
     background: var(--paper);
     color: var(--ink);
     overflow-x: hidden;
+    padding-top: 68px;
   }
 
   /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 4rem;
-    background: rgba(247,243,238,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(200,53,42,0.12);
-    transition: padding 0.3s;
-  }
-  .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem; color: var(--red);
-    text-decoration: none; display: flex; align-items: center; gap: 0.5rem;
-  }
-  .nav-logo span { color: var(--ink); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    text-decoration: none; color: var(--ink);
-    font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em;
-    text-transform: uppercase; transition: color 0.2s;
-  }
-  .nav-links a:hover, .nav-links a.active { color: var(--red); }
-  .nav-cta {
-    background: var(--red); color: var(--white);
-    padding: 0.55rem 1.4rem; border-radius: 2px;
-    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
-    text-transform: uppercase; text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .nav-cta:hover { background: #a82820; transform: translateY(-1px); }
 
   /* ── PAGE HERO ── */
   .page-hero {
@@ -311,11 +282,7 @@
   }
 
   /* Form navigation */
-  .form-nav {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-top: 2rem; padding-top: 1.5rem;
-    border-top: 1px solid rgba(139,125,107,0.15);
-  }
+  .form-
   .btn-next, .btn-back, .btn-submit {
     padding: 0.85rem 2rem; border-radius: 2px;
     font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
@@ -524,7 +491,7 @@
 
   /* ── ANIMATIONS ── */
   .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }.nav-links { display: none; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
     .page-hero { padding: 120px 2.5rem 4rem; }
     .trust-bar { padding: 1rem 2rem; gap: 1.5rem; }
     .contact-main { grid-template-columns: 1fr; }
@@ -541,7 +508,7 @@
 
   /* ══ MOBILE RESPONSIVE ══ */
   @media (max-width: 900px) {
-    body { padding-top: 68px; }
+    body { }
     section, .page-hero, .tours-page, .dest-section,
     .articles-section, .faq-section, .practical,
     .next-steps, .reviews-strip, .featured-wrap,
