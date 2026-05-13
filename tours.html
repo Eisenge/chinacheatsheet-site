@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
 <link rel="stylesheet" href="nav.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -605,10 +607,11 @@
     h1 { font-size: clamp(2rem, 7vw, 3rem) !important; }
     .hero-stats { gap: 1.5rem !important; flex-wrap: wrap; }
     /* Grids → single column */
-    .tours-grid, .dest-grid, .testi-grid,
+    .dest-grid, .testi-grid,
     .why-grid, .footer-grid, .articles-grid,
     .practical-grid, .reviews-grid, .steps-grid,
     .faq-grid, .tips-grid, .checklist-grid { grid-template-columns: 1fr !important; }
+    .tours-grid { grid-template-columns: 1fr !important; }
     /* Two column grids → single on mobile */
     .form-row, .contact-main, .featured-banner,
     .featured-article, .featured-dest, .newsletter,
