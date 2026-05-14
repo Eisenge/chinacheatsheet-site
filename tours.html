@@ -589,7 +589,7 @@
   }
 
   /* ══ MOBILE RESPONSIVE ══ */
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     body { }
     section, .page-hero, .tours-page, .dest-section,
     .articles-section, .faq-section, .practical,
@@ -612,7 +612,7 @@
     .why-grid, .footer-grid, .articles-grid,
     .practical-grid, .reviews-grid, .steps-grid,
     .faq-grid, .tips-grid, .checklist-grid { grid-template-columns: 1fr !important; }
-    .tours-grid { grid-template-columns: 1fr !important; }
+    #tours-grid { grid-template-columns: 1fr !important; }
     /* Two column grids → single on mobile */
     .form-row, .contact-main, .featured-banner,
     .featured-article, .featured-dest, .newsletter,
@@ -669,7 +669,7 @@
 
 
   /* ── FINAL TOURS GRID FIX ── */
-  @media screen and (min-width: 901px) {
+  @media screen and (min-width: 769px) {
   }
 
   /* ===== TOURS GRID - DEFINITIVE ===== */
@@ -702,7 +702,7 @@
     background-position: center center !important;
     background-repeat: no-repeat !important;
   }
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     .tours-grid {
       grid-template-columns: 1fr !important;
     }
@@ -832,12 +832,12 @@
   </div>
 
   <!-- TOUR GRID -->
-  <div class="tours-grid" id="tours-grid">
+  <div class="tours-grid" id="tours-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px; width:100%;">
 
     <!-- 1: Imperial Classic -->
-    <article class="tour-card fade-up" data-cat="classic" itemscope itemtype="https://schema.org/TouristTrip" data-price="1980" data-days="8">
-      <div class="tour-img-wrap">
-        <div class="tour-img-inner" style="background-image:url('image/tour-imperial.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
+    <article class="tour-card fade-up" style="display:flex; flex-direction:column; overflow:hidden; background:#fff; min-width:0;" data-cat="classic" itemscope itemtype="https://schema.org/TouristTrip" data-price="1980" data-days="8">
+      <div class="tour-img-wrap" style="height:220px; overflow:hidden; position:relative; flex-shrink:0;">
+        <div class="tour-img-inner" style="width:100%; height:100%; background-image:url('image/tour-imperial.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
           
         </div>
         <div class="tour-badge badge-red">Bestseller</div>
@@ -873,9 +873,9 @@
     </div>
 
     <!-- 2: Karst & Rice Terraces -->
-    <article class="tour-card fade-up" data-cat="nature" itemscope itemtype="https://schema.org/TouristTrip" data-price="2450" data-days="10">
-      <div class="tour-img-wrap">
-        <div class="tour-img-inner" style="background-image:url('image/tour-guilin.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
+    <article class="tour-card fade-up" style="display:flex; flex-direction:column; overflow:hidden; background:#fff; min-width:0;" data-cat="nature" itemscope itemtype="https://schema.org/TouristTrip" data-price="2450" data-days="10">
+      <div class="tour-img-wrap" style="height:220px; overflow:hidden; position:relative; flex-shrink:0;">
+        <div class="tour-img-inner" style="width:100%; height:100%; background-image:url('image/tour-guilin.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
           
         </div>
         <div class="tour-badge badge-gold">Nature</div>
@@ -911,9 +911,9 @@
     </div>
 
     <!-- 3: Tibet -->
-    <article class="tour-card fade-up" data-cat="adventure" itemscope itemtype="https://schema.org/TouristTrip" data-price="3200" data-days="12">
-      <div class="tour-img-wrap">
-        <div class="tour-img-inner" style="background-image:url('image/tour-tibet.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
+    <article class="tour-card fade-up" style="display:flex; flex-direction:column; overflow:hidden; background:#fff; min-width:0;" data-cat="adventure" itemscope itemtype="https://schema.org/TouristTrip" data-price="3200" data-days="12">
+      <div class="tour-img-wrap" style="height:220px; overflow:hidden; position:relative; flex-shrink:0;">
+        <div class="tour-img-inner" style="width:100%; height:100%; background-image:url('image/tour-tibet.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
           <span style="position:relative;z-index:1; opacity:0.5;"></span>
         </div>
         <div class="tour-badge badge-dark">Adventure</div>
@@ -949,9 +949,9 @@
     </div>
 
     <!-- 4: Silk Road -->
-    <article class="tour-card fade-up" data-cat="culture" itemscope itemtype="https://schema.org/TouristTrip" data-price="2680" data-days="12">
-      <div class="tour-img-wrap">
-        <div class="tour-img-inner" style="background-image:url('image/tour-silkroad.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
+    <article class="tour-card fade-up" style="display:flex; flex-direction:column; overflow:hidden; background:#fff; min-width:0;" data-cat="culture" itemscope itemtype="https://schema.org/TouristTrip" data-price="2680" data-days="12">
+      <div class="tour-img-wrap" style="height:220px; overflow:hidden; position:relative; flex-shrink:0;">
+        <div class="tour-img-inner" style="width:100%; height:100%; background-image:url('image/tour-silkroad.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
           
         </div>
         <div class="tour-badge badge-gold">Culture</div>
@@ -987,9 +987,9 @@
     </div>
 
     <!-- 5: Yangtze Cruise -->
-    <article class="tour-card fade-up" data-cat="luxury" itemscope itemtype="https://schema.org/TouristTrip" data-price="3800" data-days="15">
-      <div class="tour-img-wrap">
-        <div class="tour-img-inner" style="background-image:url('image/tour-yangtze.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
+    <article class="tour-card fade-up" style="display:flex; flex-direction:column; overflow:hidden; background:#fff; min-width:0;" data-cat="luxury" itemscope itemtype="https://schema.org/TouristTrip" data-price="3800" data-days="15">
+      <div class="tour-img-wrap" style="height:220px; overflow:hidden; position:relative; flex-shrink:0;">
+        <div class="tour-img-inner" style="width:100%; height:100%; background-image:url('image/tour-yangtze.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
           
         </div>
         <div class="tour-badge badge-red">Luxury</div>
@@ -1025,9 +1025,9 @@
     </div>
 
     <!-- 6: Chengdu & Pandas -->
-    <article class="tour-card fade-up" data-cat="nature" itemscope itemtype="https://schema.org/TouristTrip" data-price="1650" data-days="7">
-      <div class="tour-img-wrap">
-        <div class="tour-img-inner" style="background-image:url('image/tour-panda.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
+    <article class="tour-card fade-up" style="display:flex; flex-direction:column; overflow:hidden; background:#fff; min-width:0;" data-cat="nature" itemscope itemtype="https://schema.org/TouristTrip" data-price="1650" data-days="7">
+      <div class="tour-img-wrap" style="height:220px; overflow:hidden; position:relative; flex-shrink:0;">
+        <div class="tour-img-inner" style="width:100%; height:100%; background-image:url('image/tour-panda.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
           
         </div>
         <div class="tour-badge badge-gold">Family Friendly</div>
@@ -1063,9 +1063,9 @@
     </div>
 
     <!-- 7: Shanghai Modern -->
-    <article class="tour-card fade-up" data-cat="luxury" itemscope itemtype="https://schema.org/TouristTrip" data-price="2200" data-days="8">
-      <div class="tour-img-wrap">
-        <div class="tour-img-inner" style="background-image:url('image/tour-shanghai.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
+    <article class="tour-card fade-up" style="display:flex; flex-direction:column; overflow:hidden; background:#fff; min-width:0;" data-cat="luxury" itemscope itemtype="https://schema.org/TouristTrip" data-price="2200" data-days="8">
+      <div class="tour-img-wrap" style="height:220px; overflow:hidden; position:relative; flex-shrink:0;">
+        <div class="tour-img-inner" style="width:100%; height:100%; background-image:url('image/tour-shanghai.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
           <span style="position:relative;z-index:1; opacity:0.5;"></span>
         </div>
         <div class="tour-badge badge-red">Urban</div>
@@ -1101,9 +1101,9 @@
     </div>
 
     <!-- 8: Yunnan -->
-    <article class="tour-card fade-up" data-cat="culture" itemscope itemtype="https://schema.org/TouristTrip" data-price="2350" data-days="10">
-      <div class="tour-img-wrap">
-        <div class="tour-img-inner" style="background-image:url('image/tour-yunnan.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
+    <article class="tour-card fade-up" style="display:flex; flex-direction:column; overflow:hidden; background:#fff; min-width:0;" data-cat="culture" itemscope itemtype="https://schema.org/TouristTrip" data-price="2350" data-days="10">
+      <div class="tour-img-wrap" style="height:220px; overflow:hidden; position:relative; flex-shrink:0;">
+        <div class="tour-img-inner" style="width:100%; height:100%; background-image:url('image/tour-yunnan.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
           
         </div>
         <div class="tour-badge badge-gold">Off-the-Beaten-Path</div>
@@ -1139,9 +1139,9 @@
     </div>
 
     <!-- 9: Zhangjiajie -->
-    <article class="tour-card fade-up" data-cat="adventure" itemscope itemtype="https://schema.org/TouristTrip" data-price="1890" data-days="8">
-      <div class="tour-img-wrap">
-        <div class="tour-img-inner" style="background-image:url('image/tour-zhangjiajie.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
+    <article class="tour-card fade-up" style="display:flex; flex-direction:column; overflow:hidden; background:#fff; min-width:0;" data-cat="adventure" itemscope itemtype="https://schema.org/TouristTrip" data-price="1890" data-days="8">
+      <div class="tour-img-wrap" style="height:220px; overflow:hidden; position:relative; flex-shrink:0;">
+        <div class="tour-img-inner" style="width:100%; height:100%; background-image:url('image/tour-zhangjiajie.jpg'); background-size:cover; background-position:center; width:100%; height:100%;"><div class="tour-img-overlay"></div>
           
         </div>
         <div class="tour-badge badge-dark">Adventure</div>
