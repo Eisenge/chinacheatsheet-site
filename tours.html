@@ -379,6 +379,7 @@
   }
 
   /* ── TOUR GRID ── */
+  
   .tours-grid {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
   }
@@ -577,7 +578,7 @@
     .tours-page { padding: 3rem 2.5rem; }
     .featured-banner { grid-template-columns: 1fr; }
     .featured-right { height: 220px; }
-    .tours-grid { grid-template-columns: 1fr; }
+    /* tours-grid handled in mobile section */
     .custom-banner { grid-template-columns: 1fr; padding: 2.5rem; }
     .custom-banner-btns { align-items: flex-start; }
     .inclusions-strip { grid-template-columns: repeat(3, 1fr); padding: 2.5rem; }
@@ -666,6 +667,27 @@
     .trust-item { font-size: 0.75rem !important; }
   }
 
+
+  /* ── FINAL TOURS GRID FIX ── */
+  @media screen and (min-width: 901px) {
+    #tours-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 2px !important;
+      width: 100% !important;
+    }
+    #tours-grid .tour-card {
+      display: flex !important;
+      flex-direction: column !important;
+      min-width: 0 !important;
+      border-left: none !important;
+      border-right: none !important;
+    }
+    #tours-grid .tour-img-wrap {
+      height: 220px !important;
+      min-height: 220px !important;
+    }
+  }
 </style>
 </head>
 <body>
