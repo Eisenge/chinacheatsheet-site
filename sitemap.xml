@@ -1,46 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://chinacheatsheet.site/</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://chinacheatsheet.site/tours.html</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://chinacheatsheet.site/destinations.html</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://chinacheatsheet.site/blog.html</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://chinacheatsheet.site/about.html</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://chinacheatsheet.site/contact.html</loc>
-    <lastmod>2025-05-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
+  <url><loc>https://chinacheatsheet.site/</loc><lastmod>2025-05-15</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://chinacheatsheet.site/tours.html</loc><lastmod>2025-05-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://chinacheatsheet.site/destinations.html</loc><lastmod>2025-05-15</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://chinacheatsheet.site/blog.html</loc><lastmod>2025-05-15</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://chinacheatsheet.site/about.html</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://chinacheatsheet.site/contact.html</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://chinacheatsheet.site/blog-visa.html</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://chinacheatsheet.site/blog-season.html</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://chinacheatsheet.site/blog-internet.html</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://chinacheatsheet.site/blog-money.html</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://chinacheatsheet.site/blog-rail.html</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://chinacheatsheet.site/blog-food.html</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://chinacheatsheet.site/blog-safety.html</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://chinacheatsheet.site/blog-culture.html</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://chinacheatsheet.site/blog-packing.html</loc><lastmod>2025-05-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
