@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Book Your China Tour — Secure Deposit Payment | China Cheat Sheet</title>
+<meta name="description" content="Secure your China tour with a 30% deposit. Choose your tour, select dates, and pay securely via PayPal or Stripe. Balance due 60 days before departure.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://chinacheatsheet.site/booking.html">
+<link rel="stylesheet" href="nav.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#F7F3EE;color:#1A1410;padding-top:68px}
+:root{--red:#C8352A;--gold:#D4A843;--ink:#1A1410;--paper:#F7F3EE;--cream:#EDE8E0;--mist:#8B7D6B;--white:#FFFFFF;--green:#2d7a3d}
+
+/* HERO */
+.hero{background:var(--ink);padding:3.5rem 6rem 4rem;position:relative;overflow:hidden}
+.hero::after{content:'订';font-family:serif;font-size:18rem;color:rgba(255,255,255,0.04);position:absolute;right:3rem;top:50%;transform:translateY(-50%);line-height:1;pointer-events:none}
+.breadcrumb{font-size:0.76rem;color:rgba(255,255,255,0.35);margin-bottom:1.8rem;display:flex;gap:0.4rem}
+.breadcrumb a{color:rgba(255,255,255,0.45);text-decoration:none}
+.breadcrumb a:hover{color:var(--gold)}
+.hero-tag{font-size:0.7rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem}
+.hero-tag::before{content:'';width:20px;height:1px;background:var(--gold);display:block}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3rem);color:#fff;line-height:1.1;margin-bottom:0.8rem}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero p{font-size:0.95rem;color:rgba(255,255,255,0.5);line-height:1.75;max-width:480px;font-weight:300}
+
+/* TRUST BAR */
+.trust-bar{background:var(--red);padding:0.9rem 6rem;display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:rgba(255,255,255,0.9);font-weight:500}
+
+/* MAIN LAYOUT */
+.main-wrap{display:grid;grid-template-columns:1fr 380px;gap:3rem;max-width:1100px;margin:0 auto;padding:4rem 6rem}
+
+/* BOOKING FORM */
+.booking-form{}
+.form-section{margin-bottom:2.5rem}
+.form-section-title{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:0.4rem}
+.form-section-sub{font-size:0.84rem;color:var(--mist);margin-bottom:1.5rem;font-weight:300}
+.form-group{margin-bottom:1.3rem}
+label{font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--mist);display:block;margin-bottom:0.4rem}
+.req{color:var(--red)}
+input[type="text"],input[type="email"],input[type="tel"],input[type="number"],select,textarea{
+  width:100%;background:var(--white);border:1px solid rgba(139,125,107,0.3);border-radius:3px;
+  padding:0.7rem 1rem;color:var(--ink);font-family:'DM Sans',sans-serif;font-size:0.92rem;
+  outline:none;transition:border-color 0.2s;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--red)}
+select{cursor:pointer}
+textarea{resize:vertical;min-height:90px;line-height:1.6}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+/* TOUR SELECTOR */
+.tour-options{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:0.3rem}
+.tour-option{border:1.5px solid rgba(139,125,107,0.25);border-radius:4px;padding:0.9rem 1rem;cursor:pointer;transition:all 0.2s;position:relative}
+.tour-option:hover{border-color:var(--red)}
+.tour-option.selected{border-color:var(--red);background:rgba(200,53,42,0.05)}
+.tour-option input{position:absolute;opacity:0;width:0;height:0}
+.tour-option-name{font-size:0.85rem;font-weight:500;color:var(--ink);margin-bottom:0.2rem}
+.tour-option-price{font-size:0.75rem;color:var(--mist)}
+.tour-option.selected .tour-option-name{color:var(--red)}
+.tour-option-check{position:absolute;top:0.6rem;right:0.7rem;width:18px;height:18px;border:1.5px solid rgba(139,125,107,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:transparent;transition:all 0.2s}
+.tour-option.selected .tour-option-check{background:var(--red);border-color:var(--red);color:#fff}
+
+/* PAYMENT METHODS */
+.payment-methods{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:0.5rem}
+.payment-method{border:1.5px solid rgba(139,125,107,0.25);border-radius:4px;padding:1rem;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:0.8rem;position:relative}
+.payment-method:hover{border-color:var(--ink)}
+.payment-method.selected{border-color:var(--ink);background:rgba(26,20,16,0.03)}
+.payment-method input{position:absolute;opacity:0;width:0;height:0}
+.payment-method-logo{font-size:1.4rem;flex-shrink:0}
+.payment-method-info{}
+.payment-method-name{font-size:0.88rem;font-weight:600;color:var(--ink)}
+.payment-method-desc{font-size:0.72rem;color:var(--mist);margin-top:0.1rem}
+
+/* DEPOSIT CALC */
+.deposit-calc{background:var(--cream);border-radius:4px;padding:1.2rem 1.4rem;margin:1.2rem 0}
+.deposit-row{display:flex;justify-content:space-between;align-items:center;padding:0.4rem 0;font-size:0.88rem}
+.deposit-row:last-child{border-top:1px solid rgba(139,125,107,0.25);padding-top:0.8rem;margin-top:0.4rem;font-weight:600;font-size:1rem}
+.deposit-label{color:var(--mist)}
+.deposit-val{color:var(--ink)}
+.deposit-val.highlight{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--red)}
+
+/* SUBMIT */
+.submit-section{margin-top:1.5rem}
+.submit-btn{width:100%;background:var(--red);color:#fff;border:none;padding:1.1rem;font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border-radius:3px;transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:0.6rem}
+.submit-btn:hover{background:#a82820}
+.submit-btn:disabled{background:#ccc;cursor:not-allowed}
+.submit-note{font-size:0.78rem;color:var(--mist);text-align:center;margin-top:0.8rem;line-height:1.6}
+.submit-note a{color:var(--red);text-decoration:none}
+
+/* SUCCESS STATE */
+.success-msg{display:none;text-align:center;padding:3rem 2rem}
+.success-icon{width:64px;height:64px;background:rgba(45,122,61,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1.5rem}
+.success-msg h2{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:0.8rem}
+.success-msg p{font-size:0.92rem;color:var(--mist);line-height:1.75;font-weight:300;margin-bottom:1.5rem}
+.success-msg a{display:inline-block;background:var(--red);color:#fff;padding:0.8rem 2rem;border-radius:2px;text-decoration:none;font-size:0.85rem;font-weight:500;text-transform:uppercase;letter-spacing:0.06em}
+
+/* SIDEBAR */
+.sidebar{}
+.sidebar-card{background:var(--white);padding:1.8rem;margin-bottom:1.2rem;border-radius:3px}
+.sidebar-card h3{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:1rem;padding-bottom:0.7rem;border-bottom:1px solid var(--cream)}
+.policy-item{display:flex;gap:0.8rem;padding:0.7rem 0;border-bottom:1px solid var(--cream);align-items:flex-start}
+.policy-item:last-child{border-bottom:none}
+.policy-icon{font-size:1rem;flex-shrink:0;margin-top:2px}
+.policy-text{}
+.policy-title{font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:0.15rem}
+.policy-desc{font-size:0.78rem;color:var(--mist);line-height:1.6;font-weight:300}
+.contact-alt{background:var(--ink);padding:1.5rem;border-radius:3px;text-align:center}
+.contact-alt p{font-size:0.83rem;color:rgba(255,255,255,0.6);margin-bottom:1rem;line-height:1.6;font-weight:300}
+.whatsapp-btn{display:flex;align-items:center;justify-content:center;gap:0.5rem;background:#25D366;color:#fff;padding:0.8rem;border-radius:3px;text-decoration:none;font-size:0.85rem;font-weight:600;transition:background 0.2s}
+.whatsapp-btn:hover{background:#1da851}
+.email-btn{display:flex;align-items:center;justify-content:center;gap:0.5rem;background:transparent;color:rgba(255,255,255,0.7);padding:0.7rem;border-radius:3px;text-decoration:none;font-size:0.83rem;font-weight:500;border:1px solid rgba(255,255,255,0.2);margin-top:0.6rem;transition:all 0.2s}
+.email-btn:hover{background:rgba(255,255,255,0.1);color:#fff}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,0.55);padding:3.5rem 6rem 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3.5rem;margin-bottom:3rem}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:0.9rem}
+.footer-logo span{color:rgba(255,255,255,0.7)}
+.footer-brand p{font-size:0.82rem;line-height:1.7;font-weight:300;max-width:240px}
+.footer-col h4{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.14em;color:rgba(255,255,255,0.8);margin-bottom:1rem;font-weight:500}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:0.5rem}
+.footer-col a{text-decoration:none;color:rgba(255,255,255,0.4);font-size:0.82rem;transition:color 0.2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:1.3rem;display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:rgba(255,255,255,0.22)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero,.trust-bar,footer{padding-left:2.5rem;padding-right:2.5rem}
+  .main-wrap{grid-template-columns:1fr;padding:3rem 2.5rem;gap:2.5rem}
+  .sidebar{order:-1}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media(max-width:600px){
+  .hero,.trust-bar,footer{padding-left:1.4rem;padding-right:1.4rem}
+  .main-wrap{padding:2rem 1.4rem}
+  .form-row{grid-template-columns:1fr}
+  .tour-options{grid-template-columns:1fr}
+  .payment-methods{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:1.8rem}
+  .footer-bottom{flex-direction:column;gap:0.4rem;text-align:center}
+  .trust-bar{gap:1.2rem;padding:0.8rem 1.4rem}
+}
+</style>
+</head>
+<body>
+<nav id="navbar"></nav>
+
+<!-- HERO -->
+<header class="hero">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a><span>›</span>
+    <span style="color:rgba(255,255,255,0.6)">Book Your Tour</span>
+  </nav>
+  <div class="hero-tag">Secure Booking</div>
+  <h1>Reserve Your<br><em>China Adventure</em></h1>
+  <p>Secure your spot with a 30% deposit. We will confirm your itinerary within 24 hours. Balance due 60 days before departure.</p>
+</header>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">🔒 Secure Payment</div>
+  <div class="trust-item">✅ Free Cancellation 60+ days out</div>
+  <div class="trust-item">⚡ Confirmation within 24 hours</div>
+  <div class="trust-item">💬 WhatsApp Support</div>
+</div>
+
+<main>
+<div class="main-wrap">
+
+  <!-- BOOKING FORM -->
+  <div class="booking-form">
+
+    <div id="form-wrap">
+      <form id="booking-form" novalidate>
+        <!-- Web3Forms -->
+        <input type="hidden" name="access_key" value="08d4047e-6794-4c3e-a077-e02564cb5c19">
+        <input type="hidden" name="subject" value="New Tour Booking Request — China Cheat Sheet">
+        <input type="hidden" name="from_name" value="China Cheat Sheet Booking">
+        <input type="hidden" name="tour_selected" id="hidden-tour" value="">
+        <input type="hidden" name="deposit_amount" id="hidden-deposit" value="">
+        <input type="hidden" name="payment_method" id="hidden-payment" value="">
+        <input type="checkbox" name="botcheck" style="display:none">
+
+        <!-- STEP 1: SELECT TOUR -->
+        <div class="form-section">
+          <div class="form-section-title">1. Choose Your Tour</div>
+          <div class="form-section-sub">Select the tour you would like to book. All prices are per person.</div>
+          <div class="tour-options" id="tour-options">
+            <label class="tour-option" onclick="selectTour(this, 'Imperial China Classic', 1980)">
+              <input type="radio" name="tour" value="Imperial China Classic">
+              <div class="tour-option-check">✓</div>
+              <div class="tour-option-name">Imperial China Classic</div>
+              <div class="tour-option-price">From $1,980 / person · 8 days</div>
+            </label>
+            <label class="tour-option" onclick="selectTour(this, 'Karst Mountains & Rice Terraces', 2450)">
+              <input type="radio" name="tour" value="Karst Mountains & Rice Terraces">
+              <div class="tour-option-check">✓</div>
+              <div class="tour-option-name">Karst Mountains & Rice Terraces</div>
+              <div class="tour-option-price">From $2,450 / person · 10 days</div>
+            </label>
+            <label class="tour-option" onclick="selectTour(this, 'Tibet: Roof of the World', 3200)">
+              <input type="radio" name="tour" value="Tibet: Roof of the World">
+              <div class="tour-option-check">✓</div>
+              <div class="tour-option-name">Tibet: Roof of the World</div>
+              <div class="tour-option-price">From $3,200 / person · 12 days</div>
+            </label>
+            <label class="tour-option" onclick="selectTour(this, 'The Ancient Silk Road', 2680)">
+              <input type="radio" name="tour" value="The Ancient Silk Road">
+              <div class="tour-option-check">✓</div>
+              <div class="tour-option-name">The Ancient Silk Road</div>
+              <div class="tour-option-price">From $2,680 / person · 12 days</div>
+            </label>
+            <label class="tour-option" onclick="selectTour(this, 'Yangtze River Luxury Cruise', 3800)">
+              <input type="radio" name="tour" value="Yangtze River Luxury Cruise">
+              <div class="tour-option-check">✓</div>
+              <div class="tour-option-name">Yangtze River Luxury Cruise</div>
+              <div class="tour-option-price">From $3,800 / person · 15 days</div>
+            </label>
+            <label class="tour-option" onclick="selectTour(this, 'Chengdu & Giant Panda Sanctuary', 1650)">
+              <input type="radio" name="tour" value="Chengdu & Giant Panda Sanctuary">
+              <div class="tour-option-check">✓</div>
+              <div class="tour-option-name">Chengdu & Panda Sanctuary</div>
+              <div class="tour-option-price">From $1,650 / person · 7 days</div>
+            </label>
+            <label class="tour-option" onclick="selectTour(this, 'Yunnan: Land of Eternal Spring', 2350)">
+              <input type="radio" name="tour" value="Yunnan: Land of Eternal Spring">
+              <div class="tour-option-check">✓</div>
+              <div class="tour-option-name">Yunnan: Land of Eternal Spring</div>
+              <div class="tour-option-price">From $2,350 / person · 10 days</div>
+            </label>
+            <label class="tour-option" onclick="selectTour(this, 'Custom Tour', 0)">
+              <input type="radio" name="tour" value="Custom Tour">
+              <div class="tour-option-check">✓</div>
+              <div class="tour-option-name">Custom / Bespoke Tour</div>
+              <div class="tour-option-price">Price to be confirmed</div>
+            </label>
+          </div>
+        </div>
+
+        <!-- STEP 2: YOUR DETAILS -->
+        <div class="form-section">
+          <div class="form-section-title">2. Your Details</div>
+          <div class="form-section-sub">We need these to confirm your booking and send your itinerary.</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name <span class="req">*</span></label>
+              <input type="text" name="first_name" placeholder="Sarah" required autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label>Last Name <span class="req">*</span></label>
+              <input type="text" name="last_name" placeholder="Mitchell" required autocomplete="family-name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" name="email" placeholder="sarah@email.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label>WhatsApp / Phone</label>
+            <input type="tel" name="phone" placeholder="+1 555 000 0000" autocomplete="tel">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Number of Travelers <span class="req">*</span></label>
+              <select name="travelers" id="travelers-count" onchange="updateDeposit()" required>
+                <option value="1">1 person</option>
+                <option value="2" selected>2 people</option>
+                <option value="3">3 people</option>
+                <option value="4">4 people</option>
+                <option value="5">5 people</option>
+                <option value="6+">6+ people</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Preferred Travel Dates</label>
+              <input type="text" name="travel_dates" placeholder="e.g. October 2025 / Flexible">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Special Requests or Questions</label>
+            <textarea name="special_requests" placeholder="Dietary requirements, physical limitations, special occasions, visa questions..."></textarea>
+          </div>
+        </div>
+
+        <!-- STEP 3: DEPOSIT SUMMARY -->
+        <div class="form-section">
+          <div class="form-section-title">3. Deposit Summary</div>
+          <div class="form-section-sub">A 30% deposit secures your booking. Balance is due 60 days before departure.</div>
+          <div class="deposit-calc">
+            <div class="deposit-row">
+              <span class="deposit-label">Tour price per person</span>
+              <span class="deposit-val" id="price-per-person">— Select a tour</span>
+            </div>
+            <div class="deposit-row">
+              <span class="deposit-label">Number of travelers</span>
+              <span class="deposit-val" id="num-travelers">2</span>
+            </div>
+            <div class="deposit-row">
+              <span class="deposit-label">Total tour price</span>
+              <span class="deposit-val" id="total-price">—</span>
+            </div>
+            <div class="deposit-row">
+              <span class="deposit-label">Deposit due today (30%)</span>
+              <span class="deposit-val highlight" id="deposit-due">—</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4: PAYMENT -->
+        <div class="form-section">
+          <div class="form-section-title">4. Payment Method</div>
+          <div class="form-section-sub">Choose how you would like to pay your deposit. You will be redirected to complete payment securely after submitting.</div>
+          <div class="payment-methods">
+            <label class="payment-method" onclick="selectPayment(this, 'PayPal')">
+              <input type="radio" name="payment" value="PayPal">
+              <div class="payment-method-logo">🅿️</div>
+              <div class="payment-method-info">
+                <div class="payment-method-name">PayPal</div>
+                <div class="payment-method-desc">Pay with PayPal or credit card via PayPal</div>
+              </div>
+            </label>
+            <label class="payment-method" onclick="selectPayment(this, 'Stripe')">
+              <input type="radio" name="payment" value="Stripe">
+              <div class="payment-method-logo">💳</div>
+              <div class="payment-method-info">
+                <div class="payment-method-name">Credit / Debit Card</div>
+                <div class="payment-method-desc">Visa, Mastercard, Amex via Stripe</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- SUBMIT -->
+        <div class="submit-section">
+          <button type="submit" class="submit-btn" id="submit-btn">
+            🔒 Submit Booking Request
+          </button>
+          <p class="submit-note">
+            By submitting, you agree to our <a href="#">Terms & Conditions</a> and <a href="#">Cancellation Policy</a>.
+            We will send you a payment link within 4 hours to complete your deposit.
+            Your booking is not confirmed until payment is received.
+          </p>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- SUCCESS MESSAGE -->
+    <div class="success-msg" id="success-msg">
+      <div class="success-icon">✓</div>
+      <h2>Booking Request Received!</h2>
+      <p>Thank you — we have received your booking request and will send you a secure payment link within <strong>4 hours</strong> (Monday–Saturday) to complete your 30% deposit.<br><br>
+      Check your inbox at the email address you provided. In the meantime, feel free to <a href="blog.html" style="color:var(--red);">read our travel guides</a> to start preparing for your trip.</p>
+      <a href="index.html">Back to Home</a>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <h3>Booking Policy</h3>
+      <div class="policy-item">
+        <div class="policy-icon">💰</div>
+        <div class="policy-text">
+          <div class="policy-title">30% Deposit</div>
+          <div class="policy-desc">Secures your booking. Balance due 60 days before departure.</div>
+        </div>
+      </div>
+      <div class="policy-item">
+        <div class="policy-icon">✅</div>
+        <div class="policy-text">
+          <div class="policy-title">Free Cancellation</div>
+          <div class="policy-desc">Full refund if cancelled 60+ days before departure.</div>
+        </div>
+      </div>
+      <div class="policy-item">
+        <div class="policy-icon">⚡</div>
+        <div class="policy-text">
+          <div class="policy-title">24-Hour Confirmation</div>
+          <div class="policy-desc">We confirm all bookings within 24 hours and send your payment link.</div>
+        </div>
+      </div>
+      <div class="policy-item">
+        <div class="policy-icon">🔄</div>
+        <div class="policy-text">
+          <div class="policy-title">Flexible Changes</div>
+          <div class="policy-desc">Dates and itinerary details can be adjusted up to 30 days before departure.</div>
+        </div>
+      </div>
+      <div class="policy-item">
+        <div class="policy-icon">🛡</div>
+        <div class="policy-text">
+          <div class="policy-title">Secure Payment</div>
+          <div class="policy-desc">All payments processed via PayPal or Stripe — bank-level security.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-alt">
+      <p>Prefer to talk first? We are happy to answer questions before you commit.</p>
+      <a href="https://wa.me/8618434222218" class="whatsapp-btn" target="_blank">
+        💬 WhatsApp Us Now
+      </a>
+      <a href="mailto:hello@chinacheatsheet.site" class="email-btn">
+        ✉️ hello@chinacheatsheet.site
+      </a>
+    </div>
+
+    <div class="sidebar-card">
+      <h3>What Happens Next</h3>
+      <div style="display:flex;flex-direction:column;gap:0.8rem;margin-top:0.5rem">
+        <div style="display:flex;gap:0.8rem;align-items:flex-start">
+          <div style="width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;font-size:0.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
+          <div style="font-size:0.83rem;color:var(--mist);line-height:1.6;font-weight:300">Submit this form with your tour choice and details</div>
+        </div>
+        <div style="display:flex;gap:0.8rem;align-items:flex-start">
+          <div style="width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;font-size:0.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
+          <div style="font-size:0.83rem;color:var(--mist);line-height:1.6;font-weight:300">We review and send you a secure payment link within 4 hours</div>
+        </div>
+        <div style="display:flex;gap:0.8rem;align-items:flex-start">
+          <div style="width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;font-size:0.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
+          <div style="font-size:0.83rem;color:var(--mist);line-height:1.6;font-weight:300">Pay your 30% deposit to confirm the booking</div>
+        </div>
+        <div style="display:flex;gap:0.8rem;align-items:flex-start">
+          <div style="width:24px;height:24px;border-radius:50%;background:var(--red);color:#fff;font-size:0.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">4</div>
+          <div style="font-size:0.83rem;color:var(--mist);line-height:1.6;font-weight:300">We finalize your itinerary and send full trip details</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+</div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo">China <span>Cheat Sheet</span></a>
+      <p>Your trusted guide to traveling China. Handcrafted itineraries, expert local guides, seamless logistics.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Tours</h4>
+      <ul>
+        <li><a href="tours.html">All Tours</a></li>
+        <li><a href="booking.html">Book Now</a></li>
+        <li><a href="contact.html">Custom Tours</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Destinations</h4>
+      <ul>
+        <li><a href="destinations.html">All Destinations</a></li>
+        <li><a href="blog.html">Travel Tips</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 chinacheatsheet.site · All rights reserved.</span>
+    <span><a href="#" style="color:inherit">Privacy Policy</a> · <a href="#" style="color:inherit">Terms</a></span>
+  </div>
+</footer>
+
+<script>
+var selectedTourPrice = 0;
+var selectedTourName = '';
+
+function selectTour(el, name, price) {
+  document.querySelectorAll('.tour-option').forEach(function(o) { o.classList.remove('selected'); });
+  el.classList.add('selected');
+  selectedTourPrice = price;
+  selectedTourName = name;
+  document.getElementById('hidden-tour').value = name;
+  updateDeposit();
+}
+
+function selectPayment(el, method) {
+  document.querySelectorAll('.payment-method').forEach(function(o) { o.classList.remove('selected'); });
+  el.classList.add('selected');
+  document.getElementById('hidden-payment').value = method;
+}
+
+function updateDeposit() {
+  var travelers = parseInt(document.getElementById('travelers-count').value) || 2;
+  document.getElementById('num-travelers').textContent = travelers;
+
+  if (selectedTourPrice === 0) {
+    document.getElementById('price-per-person').textContent = 'Price on request';
+    document.getElementById('total-price').textContent = '—';
+    document.getElementById('deposit-due').textContent = 'TBC';
+    document.getElementById('hidden-deposit').value = 'TBC';
+    return;
+  }
+
+  var total = selectedTourPrice * travelers;
+  var deposit = Math.round(total * 0.3);
+  document.getElementById('price-per-person').textContent = '$' + selectedTourPrice.toLocaleString();
+  document.getElementById('total-price').textContent = '$' + total.toLocaleString();
+  document.getElementById('deposit-due').textContent = '$' + deposit.toLocaleString();
+  document.getElementById('hidden-deposit').value = '$' + deposit.toLocaleString();
+}
+
+// Form submission
+document.getElementById('booking-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  var btn = document.getElementById('submit-btn');
+
+  // Validation
+  var firstName = this.querySelector('[name="first_name"]').value.trim();
+  var email = this.querySelector('[name="email"]').value.trim();
+  var tour = document.getElementById('hidden-tour').value;
+
+  if (!firstName || !email) {
+    alert('Please fill in your name and email address.');
+    return;
+  }
+  if (!tour) {
+    alert('Please select a tour.');
+    return;
+  }
+  if (!email.includes('@')) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+
+  try {
+    var data = new FormData(this);
+    var response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      document.getElementById('form-wrap').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      throw new Error('Failed');
+    }
+  } catch(err) {
+    btn.textContent = '🔒 Submit Booking Request';
+    btn.disabled = false;
+    alert('Something went wrong. Please WhatsApp us at +86 184 3422 2218 or email hello@chinacheatsheet.site');
+  }
+});
+</script>
+<script src="nav.js"></script>
+</body>
+</html>
