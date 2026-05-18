@@ -1,0 +1,16 @@
+# Prevent Cloudflare Pages from stripping .html extension
+/about /about.html 200
+/blog /blog.html 200
+/contact /contact.html 200
+/destinations /destinations.html 200
+/tours /tours.html 200
+/booking /booking.html 200
+/blog-visa /blog-visa.html 200
+/blog-season /blog-season.html 200
+/blog-internet /blog-internet.html 200
+/blog-money /blog-money.html 200
+/blog-rail /blog-rail.html 200
+/blog-food /blog-food.html 200
+/blog-safety /blog-safety.html 200
+/blog-culture /blog-culture.html 200
+/blog-packing /blog-packing.html 200
